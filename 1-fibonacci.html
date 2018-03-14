@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Javascript problem solve</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function fibonacci(number) {
+			let previous_number=0;
+			let current_number=1;
+			let fibonacci_number=0;
+			let loop_length=1;
+			while(true){
+				console.log(fibonacci_number);
+				fibonacci_number=previous_number+current_number;
+				previous_number=current_number;
+				current_number=fibonacci_number;
+				loop_length++;
+				if (fibonacci_number==number) {
+					return loop_length;
+				}else if(fibonacci_number>number){
+					return;
+				}
+			}
+		}
+		console.log('position '+ fibonacci(54));
+	</script>
+</body>
+</html>
