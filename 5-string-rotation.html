@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Javascript problem solve</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function stringRotationCheck(first,second) {
+		    if (first===second) {
+		    	return false;
+		    }
+		    else if (first[0]==second[first.length-1]) {
+		    	return true;
+		    }
+		}
+		console.log(stringRotationCheck('ABCD','BCDA'));
+
+	</script>
+</body>
+</html>
