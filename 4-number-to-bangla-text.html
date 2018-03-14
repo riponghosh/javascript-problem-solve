@@ -1,39 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">	
 	<title>Javascript problem solve</title>
 </head>
 <body>
 	<script type="text/javascript">
-		function* numberPlateGenerator() {
-		    let number1 = 1;
-		    let number2=1;
-
-		    while(number2<=10) {
-		        yield number1+'-'+ number2++;
-		        if (number2==11) {
-		        	number1++;
-		        	number2=1;
-		        }
+		function numberToBanglaText(value) {
+		    let numberSeries = ["", "এক", "দুই", "তিন", "চার", "পাঁচ", "ছয়", "সাত", "আট", "নয়", "দশ", "এগার", "বার", "তের", "চৌদ্দ", "পনের", "ষোল", "সতের", "আঠার", "উনিশ", "বিশ", "একুশ", "বাইশ", "তেইশ", "চব্বিশ", "পঁচিশ", "ছাব্বিশ", "সাতাশ", "আটাশ", "ঊনত্রিশ", "ত্রিশ", "একত্রিশ", "বত্রিশ", "তেত্রিশ", "চৌত্রিশ", "পঁয়ত্রিশ"];
+		    let tempNumber=value;
+		    let numberCheck=0;
+		    let text='';
+		    if (tempNumber>99999) {
+		    	numberCheck=(tempNumber/100000).toFixed(0);
+		    	tempNumber=tempNumber-numberCheck*100000;
+		    	text=text+numberSeries[numberCheck]+" লক্ষ ";
 		    }
+		    if (tempNumber>999) {
+		    	numberCheck=(tempNumber/1000).toFixed(0);
+		    	tempNumber=tempNumber-numberCheck*1000;
+		    	text=text+numberSeries[numberCheck]+" হাজার ";
+		    }
+		    if (tempNumber>99) {
+		    	numberCheck=(tempNumber/100).toFixed(0);
+		    	tempNumber=tempNumber-numberCheck*100;
+		    	text=text+numberSeries[numberCheck]+" শত ";
+		    } 
+		    if (tempNumber>0) {
+		    	text=text+' '+numberSeries[tempNumber];
+		    }
+		    return text;
 		}
-		var numberPlate= numberPlateGenerator();
-		console.log(numberPlate.next().value);
-		console.log(numberPlate.next().value);
-		console.log(numberPlate.next().value);
-		console.log(numberPlate.next().value);
-		console.log(numberPlate.next().value);
-		console.log(numberPlate.next().value);
-		console.log(numberPlate.next().value);
-		console.log(numberPlate.next().value);
-		console.log(numberPlate.next().value);
-		console.log(numberPlate.next().value);
-		console.log(numberPlate.next().value);
-		console.log(numberPlate.next().value);
-		console.log(numberPlate.next().value);
-		console.log(numberPlate.next().value);
-		console.log(numberPlate.next().value);
-		console.log(numberPlate.next().value);
+		console.log(numberToBanglaText(1125));
 	</script>
 </body>
 </html>
